@@ -1,6 +1,44 @@
-﻿using Auth.Core.Interfaces;
+﻿using Auth.Core.Entities;
+using Auth.Core.Interfaces;
+using Auth.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auth.Infrastructure.Repositories;
 internal class FuncionarioRepository : IFuncionarioRepository
 {
+    private readonly AppDbContext _dbContext;
+
+    public FuncionarioRepository(AppDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
+
+    public async Task<FuncionarioEntity?> GetAsync(string email, string senha)
+    {
+        var senhaHash = senha;
+
+        return await _dbContext.Funcionarios.AsNoTracking()
+                .FirstOrDefaultAsync(f => f.Email == email && f.Senha == senhaHash);
+    }
+
+    public async Task<FuncionarioEntity> AddAsync(FuncionarioEntity funcionario)
+    {
+        await _dbContext.Funcionarios.AddAsync(funcionario);
+        return funcionario;
+    }
+
+    public async Task<bool> DeleteAsync(Guid id)
+    {
+        var funcionario = await _dbContext.Funcionarios.FindAsync(id);
+
+        if(funcionario is null)
+            return false;
+        else
+        {
+            _dbContext.Funcionarios.Remove(funcionario);
+            return true;
+        }
+    }
+
+ 
 }
