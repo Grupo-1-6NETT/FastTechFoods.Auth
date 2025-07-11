@@ -1,8 +1,8 @@
 ﻿namespace Auth.Core.Enums;
-internal enum FuncionarioFuncao
+public enum FuncionarioFuncao
 {
-    Gerente,
-    Atendente
+    Gerente = 1,
+    Atendente = 2,
 }
 
 internal static class FuncionarioPermissao

@@ -1,7 +1,12 @@
 ﻿namespace Auth.Core.Entities;
-internal class BaseEntity
+public abstract class BaseEntity
 {
-    public Guid Id { get; set; }
-    public DateTime DataCriacao { get; set; }
-    public DateTime DataAtualizacao { get; set; }
+    public Guid Id { get; init; } = Guid.NewGuid();
+    public DateTime DataCriacao { get; init; } = DateTime.UtcNow;
+    public DateTime? DataAtualizacao { get; protected set; }
+
+    public void AtualizarData()
+    {
+        DataAtualizacao = DateTime.UtcNow;
+    }
 }
