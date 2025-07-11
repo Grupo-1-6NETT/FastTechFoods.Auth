@@ -1,7 +1,7 @@
 ﻿using Auth.Core.Enums;
 
 namespace Auth.Core.Entities;
-public class FuncionarioEntity
+public class FuncionarioEntity : BaseEntity
 {
     public string Nome { get; private set; } = string.Empty;
     public string Email { get; private set; } = string.Empty;
