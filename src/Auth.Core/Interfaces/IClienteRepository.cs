@@ -8,4 +8,5 @@ public interface IClienteRepository
     Task<ClienteEntity?> AddAsync(ClienteEntity cliente);
     Task<ClienteEntity?> UpdateAsync(string cpf, string nome, string email);
     Task<bool> DeleteAsync(Guid id);
+    Task<bool> ClienteExisteAsync(string email);
 }

@@ -56,4 +56,8 @@ internal class ClienteRepository : IClienteRepository
         }
     }
 
+    public async Task<bool> ClienteExisteAsync(string email)
+    {
+        return await _dbContext.Clientes.AnyAsync(c => c.Email.Equals(email));
+    }
 }

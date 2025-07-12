@@ -57,7 +57,7 @@ public class ClienteController(ISender sender) : ControllerBase
     public async Task<IActionResult> AtualizarClienteAsync([FromBody] UpdateClienteCommand command)
     {
         var result = await sender.Send(command);
-        return Ok();
+        return Ok("Cliente atualizado com sucesso.");
     }
 
     /// <summary>
@@ -79,6 +79,6 @@ public class ClienteController(ISender sender) : ControllerBase
     public async Task<IActionResult> RemoverClienteAsync([FromRoute] Guid id)
     {
         var result = await sender.Send(new DeleteClienteCommand(id));
-        return Ok();
+        return Ok("Cliente removido com sucesso");
     }
 }
