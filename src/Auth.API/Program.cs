@@ -1,3 +1,4 @@
+using Auth.API.Filters;
 using Auth.Application.DependencyInjection;
 using Auth.Infrastructure.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructureDI(builder.Configuration);
 builder.Services.AddApplicationDI();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt => opt.Filters.Add<ExceptionFilter>());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
