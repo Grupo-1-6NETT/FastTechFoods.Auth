@@ -13,10 +13,8 @@ internal class FuncionarioRepository : IFuncionarioRepository
         _dbContext = dbContext;
     }
 
-    public async Task<FuncionarioEntity?> GetAsync(string email, string senha)
+    public async Task<FuncionarioEntity?> GetAsync(string email, string senhaHash)
     {
-        var senhaHash = senha;
-
         return await _dbContext.Funcionarios.AsNoTracking()
                 .FirstOrDefaultAsync(f => f.Email == email && f.Senha == senhaHash);
     }

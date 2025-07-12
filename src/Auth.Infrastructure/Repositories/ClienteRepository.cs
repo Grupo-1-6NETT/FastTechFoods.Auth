@@ -12,18 +12,16 @@ internal class ClienteRepository : IClienteRepository
     {
         _dbContext = dbContext;
     }
-    public async Task<ClienteEntity?> GetByCpfAsync(string cpf, string senha)
+    public async Task<ClienteEntity?> GetByCpfAsync(string cpf, string senhaHash)
     {
-        var senhaHash = senha;
         var cliente = await _dbContext.Clientes.AsNoTracking()
             .FirstOrDefaultAsync(c => c.Cpf == cpf && c.SenhaHash == senhaHash);
         
         return cliente;
     }
 
-    public async Task<ClienteEntity?> GetByEmailAsync(string email, string senha)
+    public async Task<ClienteEntity?> GetByEmailAsync(string email, string senhaHash)
     {
-        var senhaHash = senha;
         var cliente = await _dbContext.Clientes.AsNoTracking()
             .FirstOrDefaultAsync(c => c.Email == email && c.SenhaHash == senhaHash);
 
