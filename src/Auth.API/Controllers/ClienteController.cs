@@ -40,7 +40,8 @@ public class ClienteController(ISender sender) : ControllerBase
     /// <remarks>
     /// Exemplo:    
     ///  {  
-    ///     "nome": "Alfred",   
+    ///     "nome": "Alfred", 
+    ///     "cpf": "11111111111" 
     ///     "email": "alfred@gotham.com"    
     ///     "senha": "P4ssw0rd"     
     /// }
