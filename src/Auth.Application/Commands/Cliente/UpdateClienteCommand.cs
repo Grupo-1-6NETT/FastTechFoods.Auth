@@ -1,4 +1,5 @@
-﻿using Auth.Application.Validators;
+﻿using Auth.Application.Services;
+using Auth.Application.Validators;
 using Auth.Core.Interfaces;
 using Auth.Exception.CustomExceptions;
 using Auth.Exception.ErrorMessages;
@@ -11,17 +12,19 @@ public class UpdateClienteCommandHandler : IRequestHandler<UpdateClienteCommand,
 {
     private readonly IClienteRepository _repo;
     private readonly IUnitOfWork _unit;
+    private readonly IEncrypter _encrypter;
 
 
-    public UpdateClienteCommandHandler(IClienteRepository repo, IUnitOfWork unit)
+    public UpdateClienteCommandHandler(IClienteRepository repo, IUnitOfWork unit, IEncrypter encrypter)
     {
         _repo = repo;
         _unit = unit;
+        _encrypter = encrypter;
     }
     public async Task<bool> Handle(UpdateClienteCommand request, CancellationToken cancellationToken)
     {
         await ValidateAsync(request);
-        var senhaHash = request.Senha;
+        var senhaHash = _encrypter.Encrypt(request.Senha);
         var cliente = await _repo.GetByCpfAsync(request.Cpf, senhaHash);
         if (cliente == null)
             return false;

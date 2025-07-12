@@ -1,4 +1,5 @@
-﻿using Auth.Application.Validators;
+﻿using Auth.Application.Services;
+using Auth.Application.Validators;
 using Auth.Core.Entities;
 using Auth.Core.Interfaces;
 using Auth.Exception.CustomExceptions;
@@ -12,18 +13,20 @@ public class AddClienteCommandHandler : IRequestHandler<AddClienteCommand, Guid>
 {
     private readonly IClienteRepository _repo;
     private readonly IUnitOfWork _unit;
+    private readonly IEncrypter _encrypter;
 
-    public AddClienteCommandHandler(IClienteRepository repo, IUnitOfWork unit)
+    public AddClienteCommandHandler(IClienteRepository repo, IUnitOfWork unit, IEncrypter encrypter)
     {
         _repo = repo;
         _unit = unit;
+        _encrypter = encrypter;
     }
 
     public async Task<Guid> Handle(AddClienteCommand request, CancellationToken cancellationToken)
     {
         await ValidateAsync(request);
 
-        var senhaHash = request.Senha;
+        var senhaHash = _encrypter.Encrypt(request.Senha);
         var cliente = new ClienteEntity(request.Nome, request.Cpf, request.Email, senhaHash);
         var clienteAdicionado = await _repo.AddAsync(cliente);
         await _unit.CommitAsync();

@@ -1,6 +1,7 @@
 using Auth.API.Filters;
 using Auth.Application.DependencyInjection;
 using Auth.Infrastructure.DependencyInjection;
+using Auth.Application.Services;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructureDI(builder.Configuration);
 builder.Services.AddApplicationDI();
+builder.Services.RegisterEncrypter();
 
 builder.Services.AddControllers(opt => opt.Filters.Add<ExceptionFilter>());
 builder.Services.AddEndpointsApiExplorer();
