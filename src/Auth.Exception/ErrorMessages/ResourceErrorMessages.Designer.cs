@@ -61,6 +61,15 @@ namespace Auth.Exception.ErrorMessages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Acesso não autorizado.
+        /// </summary>
+        public static string ACCESS_FORBIDDEN {
+            get {
+                return ResourceManager.GetString("ACCESS_FORBIDDEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cpf informado inválido.
         /// </summary>
         public static string CPF_INVALID {
@@ -129,6 +138,15 @@ namespace Auth.Exception.ErrorMessages {
         public static string PASSWORD_INVALID {
             get {
                 return ResourceManager.GetString("PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário não autenticado.
+        /// </summary>
+        public static string UNAUTHORIZED {
+            get {
+                return ResourceManager.GetString("UNAUTHORIZED", resourceCulture);
             }
         }
         

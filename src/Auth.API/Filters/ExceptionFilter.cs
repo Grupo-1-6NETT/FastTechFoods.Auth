@@ -1,5 +1,6 @@
 ﻿using Auth.Exception.CustomExceptions;
 using Auth.Exception.ErrorMessages;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -27,7 +28,8 @@ public class ExceptionFilter : IExceptionFilter
 
             case UnauthorizedAccessException:
                 problemDetails.Status = StatusCodes.Status401Unauthorized;
-                problemDetails.Title = "Não autorizado";
+                problemDetails.Title = "Não autenticado";
+                problemDetails.Detail = ResourceErrorMessages.UNAUTHORIZED;
                 break;
 
             default:

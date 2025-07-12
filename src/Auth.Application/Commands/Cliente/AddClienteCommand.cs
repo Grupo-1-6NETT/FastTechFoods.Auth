@@ -1,4 +1,4 @@
-﻿using Auth.Application.Services;
+﻿using Auth.Application.Services.Cryptography;
 using Auth.Application.Validators;
 using Auth.Core.Entities;
 using Auth.Core.Interfaces;

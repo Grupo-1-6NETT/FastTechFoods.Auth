@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Auth.Application.Services;
+namespace Auth.Application.Services.Cryptography;
 internal class Encrypter : IEncrypter
 {
     private readonly string _secretKey;

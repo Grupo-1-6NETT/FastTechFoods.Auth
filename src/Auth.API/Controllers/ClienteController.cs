@@ -1,5 +1,6 @@
 ﻿using Auth.Application.Commands.Cliente;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auth.API.Controllers;
@@ -76,6 +77,7 @@ public class ClienteController(ISender sender) : ControllerBase
     [ProducesResponseType(403)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
+    [Authorize(Roles = "Gerente")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> RemoverClienteAsync([FromRoute] Guid id)
     {
