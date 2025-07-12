@@ -38,5 +38,8 @@ internal class FuncionarioRepository : IFuncionarioRepository
         }
     }
 
- 
+    public async Task<bool> FuncionarioExisteAsync(string email)
+    {
+        return await _dbContext.Funcionarios.AnyAsync(f => f.Email == email);
+    }
 }

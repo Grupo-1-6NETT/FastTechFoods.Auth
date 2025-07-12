@@ -6,4 +6,5 @@ public interface IFuncionarioRepository
     Task<FuncionarioEntity?> GetAsync(string email, string senhaHash);
     Task<FuncionarioEntity> AddAsync(FuncionarioEntity funcionario);
     Task<bool> DeleteAsync(Guid id);
+    Task<bool> FuncionarioExisteAsync(string email);
 }

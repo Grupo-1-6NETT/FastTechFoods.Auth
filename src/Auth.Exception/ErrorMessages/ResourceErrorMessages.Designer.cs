@@ -97,6 +97,15 @@ namespace Auth.Exception.ErrorMessages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Funcionário com função inválida.
+        /// </summary>
+        public static string INVALID_ROLE {
+            get {
+                return ResourceManager.GetString("INVALID_ROLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O nome não pode ser vazio.
         /// </summary>
         public static string NAME_EMPTY {

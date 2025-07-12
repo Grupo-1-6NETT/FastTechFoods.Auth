@@ -129,6 +129,9 @@
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>Email inválido</value>
   </data>
+  <data name="INVALID_ROLE" xml:space="preserve">
+    <value>Funcionário com função inválida</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>O nome não pode ser vazio</value>
   </data>

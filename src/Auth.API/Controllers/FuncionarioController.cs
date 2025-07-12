@@ -16,8 +16,10 @@ public class FuncionarioController(ISender sender) : ControllerBase
     ///     "nome": "batman",   
     ///     "email": "batman@gotham.com"    
     ///     "senha": "P4ssw0rd",    
-    ///     "funcao": "0"    
-    /// }
+    ///     "funcao": "2"    
+    /// }   
+    /// funcao: 1-gerente, 2-atendente  
+    /// 
     /// </remarks>
     /// <param name="command">Comando com os dados do Funcionário</param>
     /// <returns>O Id do Funcionário adicionado</returns>
@@ -53,6 +55,6 @@ public class FuncionarioController(ISender sender) : ControllerBase
     public async Task<IActionResult> RemoverFuncionarioAsync([FromRoute] Guid id)
     {
         var result = await sender.Send(new DeleteFuncionarioCommand(id));
-        return Ok();
+        return Ok("Funcionário removido com sucesso");
     }
 }
