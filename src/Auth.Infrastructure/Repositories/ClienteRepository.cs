@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 namespace Auth.Infrastructure.Repositories;
 internal class ClienteRepository : IClienteRepository
 {
-    private readonly AppDbContext _dbContext;
+    private readonly AuthDbContext _dbContext;
 
-    public ClienteRepository(AppDbContext dbContext)
+    public ClienteRepository(AuthDbContext dbContext)
     {
         _dbContext = dbContext;
     }

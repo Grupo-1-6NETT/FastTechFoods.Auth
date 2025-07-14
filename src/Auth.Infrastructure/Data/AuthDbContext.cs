@@ -2,16 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace Auth.Infrastructure.Data;
-public class AppDbContext : DbContext
+public class AuthDbContext : DbContext
 {
     public DbSet<ClienteEntity> Clientes { get; set; }
     public DbSet<FuncionarioEntity> Funcionarios { get; set; }
 
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AuthDbContext).Assembly);
 
         base.OnModelCreating(modelBuilder);
     }

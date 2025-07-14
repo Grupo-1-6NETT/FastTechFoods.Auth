@@ -4,9 +4,9 @@ using Auth.Infrastructure.Data;
 namespace Auth.Infrastructure.Repositories;
 internal class UnitOfWork : IUnitOfWork
 {
-    private readonly AppDbContext _dbContext;
+    private readonly AuthDbContext _dbContext;
 
-    public UnitOfWork(AppDbContext dbContext)
+    public UnitOfWork(AuthDbContext dbContext)
     {
         _dbContext = dbContext;
     }
