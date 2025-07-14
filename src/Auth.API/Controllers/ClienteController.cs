@@ -77,8 +77,8 @@ public class ClienteController(ISender sender) : ControllerBase
     [ProducesResponseType(403)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
-    [Authorize(Roles = "Gerente")]
     [HttpDelete("{id}")]
+    [Authorize(Roles = "gerente")]
     public async Task<IActionResult> RemoverClienteAsync([FromRoute] Guid id)
     {
         var result = await sender.Send(new DeleteClienteCommand(id));
