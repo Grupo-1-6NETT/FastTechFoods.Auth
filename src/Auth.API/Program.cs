@@ -71,6 +71,18 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 
+    c.AddServer(new OpenApiServer
+    {
+        Url = "/auth",
+        Description = "Via Ingress - Prefixo /auth"
+    });
+
+    c.AddServer(new OpenApiServer
+    {
+        Url = "/",
+        Description = "Via Local - Sem Prefixo"
+    });
+
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
