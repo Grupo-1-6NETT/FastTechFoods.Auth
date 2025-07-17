@@ -36,9 +36,26 @@ public class TokenController(ISender sender) : ControllerBase
     /// <response code="500">Erro inesperado</response>
     [HttpGet]
     [Route("getcliente")]
-    public async Task<IActionResult> GetClienteToken(string cpf, string senha)
+    public async Task<IActionResult> GetClienteCpfToken(string cpf, string senha)
     {
-        var token = await sender.Send(new GetClienteTokenQuery(cpf, senha));
+        var token = await sender.Send(new GetClienteByCpfTokenQuery(cpf, senha));
+        return string.IsNullOrEmpty(token) ? Unauthorized(ResourceErrorMessages.UNAUTHORIZED) : Ok(new { Token = token });
+    }
+    /// <summary>
+    /// Gera um token de autenticação para o email e senha informados. 
+    /// </summary>
+    /// <param name="email">Informe email</param>
+    /// <param name="senha">Senha</param>
+    /// <returns>O token de autenticação da API</returns>
+    /// <response code="200">Token gerado com sucesso</response>
+    /// <response code="401">Funcionário não autenticado</response>    
+    /// <response code="500">Erro inesperado</response>
+    /// 
+    [HttpGet]
+    [Route("getcliente2")]
+    public async Task<IActionResult> GetClienteEmailToken(string email, string senha)
+    {
+        var token = await sender.Send(new GetClienteByEmailTokenQuery(email, senha));
         return string.IsNullOrEmpty(token) ? Unauthorized(ResourceErrorMessages.UNAUTHORIZED) : Ok(new { Token = token });
     }
 }

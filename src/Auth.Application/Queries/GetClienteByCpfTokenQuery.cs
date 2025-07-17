@@ -4,9 +4,9 @@ using Auth.Core.Interfaces;
 using MediatR;
 
 namespace Auth.Application.Queries;
-public record GetClienteTokenQuery(string Cpf, string Senha) : IRequest<string>;
+public record GetClienteByCpfTokenQuery(string Cpf, string Senha) : IRequest<string>;
 
-public class GetClienteTokenQueryHandler : IRequestHandler<GetClienteTokenQuery, string>
+public class GetClienteTokenQueryHandler : IRequestHandler<GetClienteByCpfTokenQuery, string>
 {
     private readonly IClienteRepository _repo;
     private readonly ITokenService _tokenService;
@@ -19,7 +19,7 @@ public class GetClienteTokenQueryHandler : IRequestHandler<GetClienteTokenQuery,
         _encrypter = encrypter;
     }
 
-    public async Task<string> Handle(GetClienteTokenQuery request, CancellationToken cancellationToken)
+    public async Task<string> Handle(GetClienteByCpfTokenQuery request, CancellationToken cancellationToken)
     {
         var senhaHash = _encrypter.Encrypt(request.Senha);
         var cliente = await _repo.GetByCpfAsync(request.Cpf, senhaHash);
