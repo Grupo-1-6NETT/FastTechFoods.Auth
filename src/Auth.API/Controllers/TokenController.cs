@@ -18,7 +18,7 @@ public class TokenController(ISender sender) : ControllerBase
     /// <response code="401">Funcionário não autenticado</response>    
     /// <response code="500">Erro inesperado</response>
     [HttpGet]
-    [Route("getfuncionario")]
+    [Route("funcionario")]
     public async Task<IActionResult> GetFuncionarioToken(string email, string senha)
     {
         var token = await sender.Send(new GetFuncionarioTokenQuery(email, senha));
@@ -35,7 +35,7 @@ public class TokenController(ISender sender) : ControllerBase
     /// <response code="401">Funcionário não autenticado</response>    
     /// <response code="500">Erro inesperado</response>
     [HttpGet]
-    [Route("getcliente")]
+    [Route("cpf")]
     public async Task<IActionResult> GetClienteCpfToken(string cpf, string senha)
     {
         var token = await sender.Send(new GetClienteByCpfTokenQuery(cpf, senha));
@@ -52,7 +52,7 @@ public class TokenController(ISender sender) : ControllerBase
     /// <response code="500">Erro inesperado</response>
     /// 
     [HttpGet]
-    [Route("getcliente2")]
+    [Route("email")]
     public async Task<IActionResult> GetClienteEmailToken(string email, string senha)
     {
         var token = await sender.Send(new GetClienteByEmailTokenQuery(email, senha));
