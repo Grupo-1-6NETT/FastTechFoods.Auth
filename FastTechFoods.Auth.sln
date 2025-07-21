@@ -5,13 +5,13 @@ VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.API", "src\Auth.API\Auth.API.csproj", "{443F9186-A564-4FE8-8225-BDF0FF747081}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.API", "src\Auth.API\Auth.API.csproj", "{443F9186-A564-4FE8-8225-BDF0FF747081}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Application", "src\Auth.Application\Auth.Application.csproj", "{1B183477-74E4-4350-AE03-D38AF5B7BAA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Application", "src\Auth.Application\Auth.Application.csproj", "{1B183477-74E4-4350-AE03-D38AF5B7BAA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Core", "src\Auth.Core\Auth.Core.csproj", "{FF8CC3AA-77ED-4251-83D6-4AD78494E814}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Core", "src\Auth.Core\Auth.Core.csproj", "{FF8CC3AA-77ED-4251-83D6-4AD78494E814}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Infrastructure", "src\Auth.Infrastructure\Auth.Infrastructure.csproj", "{35959260-B73B-47C3-BFC7-7353220E70DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Infrastructure", "src\Auth.Infrastructure\Auth.Infrastructure.csproj", "{35959260-B73B-47C3-BFC7-7353220E70DF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0C88DD14-F956-CE84-757C-A364CCF449FC}"
 EndProject
@@ -21,9 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Exception", "src\Auth.Exception\Auth.Exception.csproj", "{5C6B59DA-1964-47B5-B250-902123DCFC81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Exception", "src\Auth.Exception\Auth.Exception.csproj", "{5C6B59DA-1964-47B5-B250-902123DCFC81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Application.Test", "test\Auth.Application.Test\Auth.Application.Test.csproj", "{1A02919A-F61A-447F-A676-B86988B80BC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Application.Test", "test\Auth.Application.Test\Auth.Application.Test.csproj", "{1A02919A-F61A-447F-A676-B86988B80BC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.API.Test", "Auth.API.Test\Auth.API.Test.csproj", "{6D16F4BE-40F0-43E5-88FF-29AEAC9D98BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{1A02919A-F61A-447F-A676-B86988B80BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A02919A-F61A-447F-A676-B86988B80BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A02919A-F61A-447F-A676-B86988B80BC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D16F4BE-40F0-43E5-88FF-29AEAC9D98BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D16F4BE-40F0-43E5-88FF-29AEAC9D98BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D16F4BE-40F0-43E5-88FF-29AEAC9D98BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D16F4BE-40F0-43E5-88FF-29AEAC9D98BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{35959260-B73B-47C3-BFC7-7353220E70DF} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{5C6B59DA-1964-47B5-B250-902123DCFC81} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{1A02919A-F61A-447F-A676-B86988B80BC2} = {0C88DD14-F956-CE84-757C-A364CCF449FC}
+		{6D16F4BE-40F0-43E5-88FF-29AEAC9D98BA} = {0C88DD14-F956-CE84-757C-A364CCF449FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2A8B3159-619C-498A-8CA4-A26C1781DC7B}

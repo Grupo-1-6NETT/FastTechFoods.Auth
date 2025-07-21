@@ -1,7 +1,7 @@
 ﻿using Auth.Application.Services.Cryptography;
 using Microsoft.Extensions.Configuration;
 
-namespace Auth.Application.Test;
+namespace Auth.Application.Test.Services;
 public class EncrypterTest
 {
     private readonly IEncrypter _encrypter;

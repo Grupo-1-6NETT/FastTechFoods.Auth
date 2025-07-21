@@ -2,15 +2,15 @@
 using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace Auth.Application.Test;
+namespace Auth.Application.Test.Services;
 public class TokenServiceTest
 {
     [Fact]
     public void GerarToken_DeveGerarTokenValido_ComClaimsEsperados()
-    {        
+    {
         var jwtSettings = Options.Create(new JwtSettings
         {
-            SecretKey = "12345678901234567890123456789012", 
+            SecretKey = "12345678901234567890123456789012",
             Issuer = "FastTechFoods",
             Audience = "FastTechFoodsAPI",
             ExpiryInMinutes = 60
